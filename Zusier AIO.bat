@@ -950,6 +950,16 @@ echo.
 echo The next process will start soon...
 cls
 
+echo. [101;41muninstall Debloating useless packages?:[0m
+echo. Press "Y" to apply.
+echo. Press "N" to skip.
+echo.
+SET /P choice=  [101;42mY / N:[0m  
+IF /I "%choice%"=="Y" goto apply
+IF /I "%choice%"=="N" goto next
+echo.
+
+:apply
 echo Debloating useless packages (This may take some time. errors occur when package is already removed... ignore them)
 echo [                             0%                           ]
 @powershell "Get-AppxPackage *3dbuilder* | Remove-AppxPackage"
@@ -1061,6 +1071,7 @@ echo Debloating useless packages (This may take some time. errors occur when pac
 echo [=============================100.0%%========================]
 @powershell "Get-AppxPackage 'Microsoft.YourPhone' | Remove-AppxPackage"
 
+:next
 :: discord debloat :: most major versions supported
 :: thanks to Maketoo
 
