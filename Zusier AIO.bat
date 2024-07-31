@@ -1071,6 +1071,9 @@ echo Debloating useless packages (This may take some time. errors occur when pac
 echo [=============================100.0%%========================]
 @powershell "Get-AppxPackage 'Microsoft.YourPhone' | Remove-AppxPackage"
 
+echo Debloating useless packages uninstalled!
+goto :next
+
 :next
 :: discord debloat :: most major versions supported
 :: thanks to Maketoo
